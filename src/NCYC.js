@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import logo from './logo.svg'
 import './NCYC.css'
 import Button from '@material-ui/core/Button'
 import blue from '@material-ui/core/colors/blue'
