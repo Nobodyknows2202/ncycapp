@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
 .App-header {
   background-color: white;
   min-height: 100vh;
@@ -21,7 +17,7 @@
   color: #09d3ac;
 }
 
-.Links * {
+.Pages * {
   margin: 10px;
 }
 
@@ -36,13 +32,13 @@
   background-color: #e3f2fd;
 }
 
-.SideBar .Links .MuiButton-root {
+.SideBar .Pages .MuiButton-root {
   display: block;
   width: 100%;
   padding: 0px;
 }
 
-.SideBar .Links .MuiButton-root .MuiButton-label {
+.SideBar .Pages .MuiButton-root .MuiButton-label {
   display: block;
   width: 100%;
   margin-left: 0px;
@@ -58,4 +54,19 @@
   padding: .3em;
   background-color: white;
   color: #3f51b5;
+}
+
+.body {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02857em;
+  width: 70%;
+  left: 30%;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.body p {
+  padding: 2em;
 }

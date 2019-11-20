@@ -15,11 +15,6 @@ const homeSidebar = [
   { name: 'Test', page: 'test' }
 ]
 
-const homeButtons = [
-  { name: 'Go Home', page: 'home' },
-  { name: 'Next Link', page: 'test' }
-]
-
 class NCYC extends React.Component {
   constructor (props) {
     super(props)
@@ -37,8 +32,13 @@ class NCYC extends React.Component {
       case 'home':
         body = (
           <div className="body">
-            <Pages pages={ homeButtons } callback={ this.changePage.bind(this) }></Pages>
-            <Clock></Clock>
+            <h1>Joe's NCYC App</h1>
+            <p>Welcome to Joe's NCYC application! This is first of all a technical test of some interesting technology,
+              but also a space for social interaction for NCYC attendees. This website was thrown together during the week
+              before NCYC, so it is very imperfect and rough. I have tried to add some cool features to the website to
+              encourage social interaction, like a Twitter-esque feed and a diocese poll. Please look around the site and
+              talk to people!
+            </p>
           </div>
         )
         break
