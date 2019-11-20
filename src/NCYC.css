@@ -70,3 +70,25 @@
 .body p {
   padding: 2em;
 }
+
+.feed-body {
+  font-size: 1.5rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02857em;
+  width: 70%;
+  left: 30%;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Feed {
+  border-color: #42a5f5;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  width: 80%;
+}

@@ -6,13 +6,14 @@ import blue from '@material-ui/core/colors/blue'
 import Pages from './Pages.js'
 import SideBar from './SideBar.js'
 import Clock from './Clock.js'
+import Feed from './Feed.js'
 // import { } from './pages.js'
 
 const BACKGROUND_COLOR = blue[50]
 
 const homeSidebar = [
   { name: 'Home', page: 'home' },
-  { name: 'Test', page: 'test' }
+  { name: 'Feed', page: 'feed' }
 ]
 
 class NCYC extends React.Component {
@@ -42,9 +43,12 @@ class NCYC extends React.Component {
           </div>
         )
         break
-      case 'test':
+      case 'feed':
         body = (
-          <p>Test Succeeded!</p>
+          <div className="feed-body">
+            <h1>NCYC Feed</h1>
+            <Feed></Feed>
+          </div>
         )
         break
       default:
