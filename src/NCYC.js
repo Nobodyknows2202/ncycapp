@@ -16,6 +16,12 @@ const homeSidebar = [
   { name: 'Feed', page: 'feed' }
 ]
 
+const testBlobs = `[
+{ "poster": "joe", "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sit amet mauris consequat, molestie nisi sit amet, tempus sem. Sed amet."},
+{ "poster": "toby", "content": "Test Content"},
+{ "poster": "jack", "content": "Test Content"}
+]`
+
 class NCYC extends React.Component {
   constructor (props) {
     super(props)
@@ -47,7 +53,7 @@ class NCYC extends React.Component {
         body = (
           <div className="feed-body">
             <h1>NCYC Feed</h1>
-            <Feed></Feed>
+            <Feed blobs={ testBlobs }></Feed>
           </div>
         )
         break
