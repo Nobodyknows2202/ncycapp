@@ -22,13 +22,17 @@ class Feed extends React.Component {
   }
 
   submit () {
-	const xhttp = new XMLHttpRequest()
+    const xhttp = new XMLHttpRequest()
+    let test
+    xhttp.link = ((text) => )
     xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-			console.log(this.responseText)
-       }
+      if (this.readyState === 4 && this.status === 200) {
+        console.log(this.responseText)
+        test = this.responseText
+      }
     }
-    xhttp.open('GET', `http://localhost:2202?name=${this.state.nameState}&text=${this.state.textState}`, true)
+    console.log(test)
+    xhttp.open('GET', `http://127.0.0.1:2202?action=feed&name=${this.state.nameState}&text=${this.state.textState}`, true)
     xhttp.send()
   }
 
@@ -43,7 +47,7 @@ class Feed extends React.Component {
             id="name"
             label="Name:"
             variant="outlined"
-			inputProps={ { onChange: this.nameHandler.bind(this) } }
+            inputProps={ { onChange: this.nameHandler.bind(this) } }
           />
           <TextField
             id="blob"
@@ -51,7 +55,7 @@ class Feed extends React.Component {
             variant="outlined"
             multiline
             rows="4"
-			inputProps={ { onChange: this.textHandler.bind(this) } }
+            inputProps={ { onChange: this.textHandler.bind(this) } }
           />
           <Button onClick={ this.submit.bind(this) }>Post Blob</Button>
         </div>
