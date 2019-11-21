@@ -13,7 +13,8 @@ http.createServer(function (req, res) {
     console.log(file)
     file = JSON.parse(file)
     console.log(file)
-    if (requestURL.searchParams.get('name')) {
+
+    if (requestURL.searchParams.get('name') !== 'undefined') {
       file.push({ name: requestURL.searchParams.get('name'), text: requestURL.searchParams.get('text') })
 
       fs.writeFile('data/log.json', JSON.stringify(file), (err) => {
