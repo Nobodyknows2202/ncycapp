@@ -13,13 +13,15 @@ http.createServer(function (req, res) {
     console.log(file)
     file = JSON.parse(file)
     console.log(file)
-    file.push({ name: requestURL.searchParams.get('name'), text: requestURL.searchParams.get('text') })
+    if (requestURL.searchParams.get('name')) {
+      file.push({ name: requestURL.searchParams.get('name'), text: requestURL.searchParams.get('text') })
 
-    fs.writeFile('data/log.json', JSON.stringify(file), (err) => {
-      if (err) {
-        console.log(err)
-      }
-    })
+      fs.writeFile('data/log.json', JSON.stringify(file), (err) => {
+        if (err) {
+          console.log(err)
+        }
+      })
+    }
 
     res.write(JSON.stringify(file))
   } else {

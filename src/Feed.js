@@ -6,11 +6,13 @@ import TextField from '@material-ui/core/TextField'
 class Feed extends React.Component {
   constructor (props) {
     super(props)
-    let blobs = JSON.parse(props.blobs)
-    blobs = blobs.map((blob, index) => {
-      return <Blob className="Blob" key={ index } poster={ blob.poster } content={ blob.content } />
-    })
-    this.state = { blobs }
+    this.state = { }
+
+    this.inputRef = React.createRef()
+  }
+
+  componentDidMount () {
+    this.submit()
   }
 
   nameHandler (event) {
@@ -23,21 +25,24 @@ class Feed extends React.Component {
 
   submit () {
     const xhttp = new XMLHttpRequest()
-    let test
     xhttp.link = (text) => {
-      this.setState(JSON.parse(text))
+      this.setState({
+        blobs: JSON.parse(text).map((blob, index) => {
+          return <Blob className="Blob" key={ index } poster={ blob.name } content={ blob.text } />
+        })
+      })
       console.log(this.state)
     }
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
         console.log(this.responseText)
-        console.log(this.state)
         this.link(this.responseText)
       }
     }
-    console.log(test)
     xhttp.open('GET', `http://127.0.0.1:2202?action=feed&name=${this.state.nameState}&text=${this.state.textState}`, true)
     xhttp.send()
+
+    this.inputRef.current.value = ''
   }
 
   render () {
@@ -59,7 +64,7 @@ class Feed extends React.Component {
             variant="outlined"
             multiline
             rows="4"
-            inputProps={ { onChange: this.textHandler.bind(this) } }
+            inputProps={ { onChange: this.textHandler.bind(this), ref: this.inputRef } }
           />
           <Button onClick={ this.submit.bind(this) }>Post Blob</Button>
         </div>
