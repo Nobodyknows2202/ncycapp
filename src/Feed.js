@@ -24,11 +24,15 @@ class Feed extends React.Component {
   submit () {
     const xhttp = new XMLHttpRequest()
     let test
-    xhttp.link = ((text) => )
+    xhttp.link = (text) => {
+      this.setState(JSON.parse(text))
+      console.log(this.state)
+    }
     xhttp.onreadystatechange = function () {
       if (this.readyState === 4 && this.status === 200) {
         console.log(this.responseText)
-        test = this.responseText
+        console.log(this.state)
+        this.link(this.responseText)
       }
     }
     console.log(test)
