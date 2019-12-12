@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+/* eslint jsx-quotes: ["error", "prefer-double"] */
 import React from 'react'
 import './NCYC.css'
 import Button from '@material-ui/core/Button'
@@ -22,7 +23,7 @@ const testBlobs = `[
 { "poster": "jack", "content": "Test Content"}
 ]`
 
-class NCYC extends React.Component {
+export default class NCYC extends React.Component {
   constructor (props) {
     super(props)
     this.state = { page: 'home' }
@@ -53,7 +54,7 @@ class NCYC extends React.Component {
         body = (
           <div className="feed-body">
             <h1>NCYC Feed</h1>
-            <Feed blobs={ testBlobs }></Feed>
+            <Feed blobs={testBlobs} />
           </div>
         )
         break
@@ -63,11 +64,9 @@ class NCYC extends React.Component {
     }
     return (
       <div className="App">
-        <SideBar label="Home" pages={ homeSidebar } callback={ this.changePage.bind(this) }></SideBar>
-        { body }
+        <SideBar label="Home" pages={homeSidebar} callback={this.changePage.bind(this)} />
+        {body}
       </div>
     )
   }
 }
-
-export default NCYC
